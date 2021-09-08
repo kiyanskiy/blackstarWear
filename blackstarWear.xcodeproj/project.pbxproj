@@ -13,6 +13,9 @@
 		A347944126E2518E00768E30 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943E26E2518E00768E30 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A347944226E2518E00768E30 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943F26E2518E00768E30 /* Realm.framework */; };
 		A347944326E2518E00768E30 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943F26E2518E00768E30 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A347944626E2582300768E30 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944526E2582300768E30 /* CategoriesTableViewCell.swift */; };
+		A347944826E25A3500768E30 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944726E25A3500768E30 /* DataLoader.swift */; };
+		A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944926E25A9B00768E30 /* DataCodable.swift */; };
 		A3CA6A4D26C130CB00B10882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A4C26C130CB00B10882 /* AppDelegate.swift */; };
 		A3CA6A4F26C130CB00B10882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A4E26C130CB00B10882 /* SceneDelegate.swift */; };
 		A3CA6A5126C130CB00B10882 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A5026C130CB00B10882 /* ViewController.swift */; };
@@ -41,6 +44,9 @@
 		A347943A26E2518000768E30 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		A347943E26E2518E00768E30 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A347943F26E2518E00768E30 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		A347944526E2582300768E30 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		A347944726E25A3500768E30 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		A347944926E25A9B00768E30 /* DataCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCodable.swift; sourceTree = "<group>"; };
 		A3CA6A4926C130CB00B10882 /* blackstarWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blackstarWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CA6A4C26C130CB00B10882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3CA6A4E26C130CB00B10882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,7 +104,10 @@
 				A3CA6A4C26C130CB00B10882 /* AppDelegate.swift */,
 				A3CA6A4E26C130CB00B10882 /* SceneDelegate.swift */,
 				A3CA6A5026C130CB00B10882 /* ViewController.swift */,
+				A347944526E2582300768E30 /* CategoriesTableViewCell.swift */,
 				A3CA6A5226C130CB00B10882 /* Main.storyboard */,
+				A347944726E25A3500768E30 /* DataLoader.swift */,
+				A347944926E25A9B00768E30 /* DataCodable.swift */,
 				A3CA6A5526C130CD00B10882 /* Assets.xcassets */,
 				A3CA6A5726C130CD00B10882 /* LaunchScreen.storyboard */,
 				A3CA6A5A26C130CD00B10882 /* Info.plist */,
@@ -201,6 +210,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3CA6A5126C130CB00B10882 /* ViewController.swift in Sources */,
+				A347944626E2582300768E30 /* CategoriesTableViewCell.swift in Sources */,
+				A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */,
+				A347944826E25A3500768E30 /* DataLoader.swift in Sources */,
 				A3CA6A4D26C130CB00B10882 /* AppDelegate.swift in Sources */,
 				A3CA6A4F26C130CB00B10882 /* SceneDelegate.swift in Sources */,
 			);
@@ -365,6 +377,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Debug;
 		};
@@ -389,6 +402,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_WORKSPACE = YES;
 			};
 			name = Release;
 		};
