@@ -8,16 +8,16 @@
 import Foundation
 
 struct Result: Codable{
-    let accessories: Cathegory
-    let womens: Cathegory
-    let mens: Cathegory
-    let children: Cathegory
-    let collections: Cathegory
-    let sales: Cathegory
-    let new: Cathegory
-    let marketplace: Cathegory
-    let preorder: Cathegory
-    var allCategories: [Cathegory]
+    let accessories: Category
+    let womens: Category
+    let mens: Category
+    let children: Category
+    let collections: Category
+    let sales: Category
+    let new: Category
+    let marketplace: Category
+    let preorder: Category
+    var allCategories: [Category]
     enum CodingKeys: String, CodingKey {
         case accessories = "67"
         case womens = "68"
@@ -32,20 +32,20 @@ struct Result: Codable{
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        self.accessories = try container.decode(Cathegory.self, forKey: .accessories)
-        self.womens = try container.decode(Cathegory.self, forKey: .womens)
-        self.mens = try container.decode(Cathegory.self, forKey: .mens)
-        self.children = try container.decode(Cathegory.self, forKey: .children)
-        self.collections = try container.decode(Cathegory.self, forKey: .collections)
-        self.sales = try container.decode(Cathegory.self, forKey: .sales)
-        self.new = try container.decode(Cathegory.self, forKey: .new)
-        self.marketplace = try container.decode(Cathegory.self, forKey: .marketplace)
-        self.preorder = try container.decode(Cathegory.self, forKey: .preorder)
+        self.accessories = try container.decode(Category.self, forKey: .accessories)
+        self.womens = try container.decode(Category.self, forKey: .womens)
+        self.mens = try container.decode(Category.self, forKey: .mens)
+        self.children = try container.decode(Category.self, forKey: .children)
+        self.collections = try container.decode(Category.self, forKey: .collections)
+        self.sales = try container.decode(Category.self, forKey: .sales)
+        self.new = try container.decode(Category.self, forKey: .new)
+        self.marketplace = try container.decode(Category.self, forKey: .marketplace)
+        self.preorder = try container.decode(Category.self, forKey: .preorder)
         self.allCategories = [self.accessories, self.womens, self.mens, self.children, self.collections, self.sales, self.new, self.marketplace, self.preorder]
     }
 }
 
-struct Cathegory: Codable{
+struct Category: Codable{
     let name: String
     let sortOrder: String
     let image: String
@@ -85,7 +85,7 @@ struct Cathegory: Codable{
 
 struct Subcategories: Codable{
     let name: String
-    let sortOrder: String?
+    let sortOrder: String
     let id: String
     let iconImage: String
     let type: String
@@ -121,4 +121,24 @@ struct Subcategories: Codable{
 
         
     }
+}
+
+struct Products: Codable{
+    let name: String
+    let description: String
+    let colorName: String
+    let price: String
+    let colorImageURL: String
+    let mainImage: String
+    let productImages: [ProductImages]
+    let offers: [Offers]
+}
+
+struct ProductImages: Codable{
+    let imageURL: String
+    let sortOrder: String
+}
+
+struct Offers: Codable{
+    let size: String
 }
