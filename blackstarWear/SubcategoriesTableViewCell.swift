@@ -8,7 +8,7 @@
 import UIKit
 
 class SubcategoriesTableViewCell: UITableViewCell {
-
+    var subcategoryId = ""
     @IBOutlet weak var subcategoryNameLabel: UILabel!
     @IBOutlet weak var subcategoryImageView: UIImageView!
     override func awakeFromNib() {
@@ -22,6 +22,7 @@ class SubcategoriesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func fillCell(_ subcategory: SubcategoryRealm){
+        self.subcategoryId = subcategory.id
         self.subcategoryNameLabel.text = subcategory.name
         if let imageData = subcategory.iconImageData {
             self.subcategoryImageView.image =  UIImage(data: imageData)

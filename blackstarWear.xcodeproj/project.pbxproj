@@ -10,8 +10,6 @@
 		A33901A526E8A6E300885337 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A426E8A6E300885337 /* RealmData.swift */; };
 		A33901A726F0785D00885337 /* SubcategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A626F0785D00885337 /* SubcategoriesViewController.swift */; };
 		A33901A926F07C8700885337 /* SubcategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A826F07C8700885337 /* SubcategoriesTableViewCell.swift */; };
-		A347943B26E2518000768E30 /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; };
-		A347943C26E2518000768E30 /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A347944026E2518E00768E30 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943E26E2518E00768E30 /* RealmSwift.framework */; };
 		A347944126E2518E00768E30 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943E26E2518E00768E30 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A347944226E2518E00768E30 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943F26E2518E00768E30 /* Realm.framework */; };
@@ -19,6 +17,9 @@
 		A347944626E2582300768E30 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944526E2582300768E30 /* CategoriesTableViewCell.swift */; };
 		A347944826E25A3500768E30 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944726E25A3500768E30 /* DataLoader.swift */; };
 		A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944926E25A9B00768E30 /* DataCodable.swift */; };
+		A379A8E727255E9D00D2E6AF /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; };
+		A379A8E827255E9D00D2E6AF /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A394173C2725525500CC06FF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394173B2725525500CC06FF /* ProductListViewController.swift */; };
 		A3CA6A4D26C130CB00B10882 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A4C26C130CB00B10882 /* AppDelegate.swift */; };
 		A3CA6A4F26C130CB00B10882 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A4E26C130CB00B10882 /* SceneDelegate.swift */; };
 		A3CA6A5126C130CB00B10882 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CA6A5026C130CB00B10882 /* ViewController.swift */; };
@@ -34,9 +35,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A379A8E827255E9D00D2E6AF /* Alamofire.xcframework in Embed Frameworks */,
 				A347944326E2518E00768E30 /* Realm.framework in Embed Frameworks */,
 				A347944126E2518E00768E30 /* RealmSwift.framework in Embed Frameworks */,
-				A347943C26E2518000768E30 /* Alamofire.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +54,7 @@
 		A347944526E2582300768E30 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		A347944726E25A3500768E30 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		A347944926E25A9B00768E30 /* DataCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCodable.swift; sourceTree = "<group>"; };
+		A394173B2725525500CC06FF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		A3CA6A4926C130CB00B10882 /* blackstarWear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blackstarWear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3CA6A4C26C130CB00B10882 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3CA6A4E26C130CB00B10882 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,9 +70,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A379A8E727255E9D00D2E6AF /* Alamofire.xcframework in Frameworks */,
 				A347944226E2518E00768E30 /* Realm.framework in Frameworks */,
 				A347944026E2518E00768E30 /* RealmSwift.framework in Frameworks */,
-				A347943B26E2518000768E30 /* Alamofire.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +116,7 @@
 				A347944526E2582300768E30 /* CategoriesTableViewCell.swift */,
 				A33901A826F07C8700885337 /* SubcategoriesTableViewCell.swift */,
 				A33901A626F0785D00885337 /* SubcategoriesViewController.swift */,
+				A394173B2725525500CC06FF /* ProductListViewController.swift */,
 				A3CA6A5226C130CB00B10882 /* Main.storyboard */,
 				A347944726E25A3500768E30 /* DataLoader.swift */,
 				A347944926E25A9B00768E30 /* DataCodable.swift */,
@@ -220,6 +223,7 @@
 			files = (
 				A3CA6A5126C130CB00B10882 /* ViewController.swift in Sources */,
 				A33901A726F0785D00885337 /* SubcategoriesViewController.swift in Sources */,
+				A394173C2725525500CC06FF /* ProductListViewController.swift in Sources */,
 				A347944626E2582300768E30 /* CategoriesTableViewCell.swift in Sources */,
 				A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */,
 				A347944826E25A3500768E30 /* DataLoader.swift in Sources */,
@@ -373,6 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29PA55RT68;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
@@ -398,6 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29PA55RT68;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;

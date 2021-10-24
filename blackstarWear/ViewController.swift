@@ -18,7 +18,11 @@ class ViewController: UIViewController {
         DataLoader().loadCategories { result in
             let allCategories = try! Realm().objects(CategoryRealm.self)
             try! Realm().write{
-                try! Realm().delete(allCategories)
+               try! Realm().delete(allCategories)
+            }
+            let allSubcategories = try! Realm().objects(SubcategoryRealm.self)
+            try! Realm().write{
+               try! Realm().delete(allSubcategories)
             }
             for category in result.allCategories{
                 let newCategory = CategoryRealm()

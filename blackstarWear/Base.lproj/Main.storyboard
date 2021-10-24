@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tDp-e6-leE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="MXR-ip-4nm">
+            <objects>
+                <navigationController id="tDp-e6-leE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="aqb-o4-OLs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="fNb-1t-SnF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJH-Zr-fHz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1443" y="150"/>
+        </scene>
+        <!--Категории-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="blackstarWear" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,11 +35,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tuh-Xj-uHY">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="9YA-ks-eeo" customClass="CategoriesTableViewCell" customModule="blackstarWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="95.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="95.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9YA-ks-eeo" id="htd-Gm-3rj">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="95.5"/>
@@ -72,6 +89,7 @@
                             <constraint firstItem="Tuh-Xj-uHY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" identifier="id11" id="Xmz-vd-6Ih"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Категории" id="nWT-U6-fcg"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="Tuh-Xj-uHY" id="4l1-vn-LM9"/>
                     </connections>
@@ -80,20 +98,20 @@
             </objects>
             <point key="canvasLocation" x="18.840579710144929" y="75"/>
         </scene>
-        <!--Subcategories View Controller-->
+        <!--Категории-->
         <scene sceneID="TNz-78-AlH">
             <objects>
                 <viewController id="DPY-1o-DXd" customClass="SubcategoriesViewController" customModule="blackstarWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qWC-vK-b9z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iRo-Y0-7lf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubcategoryCell" id="ifU-cw-wKJ" customClass="SubcategoriesTableViewCell" customModule="blackstarWear" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="95.5"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="95.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ifU-cw-wKJ" id="db1-NG-xtT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="95.5"/>
@@ -143,7 +161,7 @@
                             <constraint firstItem="oxm-E6-Fid" firstAttribute="bottom" secondItem="iRo-Y0-7lf" secondAttribute="bottom" id="wnK-2f-Key"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wAK-RH-UGb"/>
+                    <navigationItem key="navigationItem" title="Категории" id="wAK-RH-UGb"/>
                     <connections>
                         <outlet property="subcategoriesTableView" destination="iRo-Y0-7lf" id="EIc-9Z-vSK"/>
                     </connections>
@@ -152,16 +170,16 @@
             </objects>
             <point key="canvasLocation" x="1157.9710144927537" y="75"/>
         </scene>
-        <!--View Controller-->
+        <!--Товары-->
         <scene sceneID="ePq-Mo-oCi">
             <objects>
-                <viewController id="DSm-kQ-1PZ" sceneMemberID="viewController">
+                <viewController id="DSm-kQ-1PZ" customClass="ProductListViewController" customModule="blackstarWear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yDo-qs-ft5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4TT-jZ-vF2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FEJ-13-8zU">
                                     <size key="itemSize" width="128" height="128"/>
@@ -230,7 +248,7 @@
                             <constraint firstItem="4TT-jZ-vF2" firstAttribute="leading" secondItem="Axy-Ct-Auk" secondAttribute="leading" id="vPc-7Y-DCK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="EJk-C4-duU"/>
+                    <navigationItem key="navigationItem" title="Товары" id="EJk-C4-duU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HD1-9Z-3VE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
