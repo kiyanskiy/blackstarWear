@@ -10,6 +10,7 @@
 		A33901A526E8A6E300885337 /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A426E8A6E300885337 /* RealmData.swift */; };
 		A33901A726F0785D00885337 /* SubcategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A626F0785D00885337 /* SubcategoriesViewController.swift */; };
 		A33901A926F07C8700885337 /* SubcategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33901A826F07C8700885337 /* SubcategoriesTableViewCell.swift */; };
+		A33C87CB27298DB9007FA4A6 /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33C87CA27298DB9007FA4A6 /* ProductCollectionViewCell.swift */; };
 		A347944026E2518E00768E30 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943E26E2518E00768E30 /* RealmSwift.framework */; };
 		A347944126E2518E00768E30 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943E26E2518E00768E30 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A347944226E2518E00768E30 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943F26E2518E00768E30 /* Realm.framework */; };
@@ -48,6 +49,7 @@
 		A33901A426E8A6E300885337 /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
 		A33901A626F0785D00885337 /* SubcategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoriesViewController.swift; sourceTree = "<group>"; };
 		A33901A826F07C8700885337 /* SubcategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		A33C87CA27298DB9007FA4A6 /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		A347943A26E2518000768E30 /* Alamofire.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Alamofire.xcframework; path = Carthage/Build/Alamofire.xcframework; sourceTree = "<group>"; };
 		A347943E26E2518E00768E30 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		A347943F26E2518E00768E30 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				A347944526E2582300768E30 /* CategoriesTableViewCell.swift */,
 				A33901A826F07C8700885337 /* SubcategoriesTableViewCell.swift */,
 				A33901A626F0785D00885337 /* SubcategoriesViewController.swift */,
+				A33C87CA27298DB9007FA4A6 /* ProductCollectionViewCell.swift */,
 				A394173B2725525500CC06FF /* ProductListViewController.swift */,
 				A3CA6A5226C130CB00B10882 /* Main.storyboard */,
 				A347944726E25A3500768E30 /* DataLoader.swift */,
@@ -223,6 +226,7 @@
 			files = (
 				A3CA6A5126C130CB00B10882 /* ViewController.swift in Sources */,
 				A33901A726F0785D00885337 /* SubcategoriesViewController.swift in Sources */,
+				A33C87CB27298DB9007FA4A6 /* ProductCollectionViewCell.swift in Sources */,
 				A394173C2725525500CC06FF /* ProductListViewController.swift in Sources */,
 				A347944626E2582300768E30 /* CategoriesTableViewCell.swift in Sources */,
 				A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */,

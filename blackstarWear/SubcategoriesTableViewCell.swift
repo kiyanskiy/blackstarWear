@@ -13,7 +13,7 @@ class SubcategoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var subcategoryImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.subcategoryImageView.layer.cornerRadius = 37.5
+       // self.subcategoryImageView.layer.cornerRadius = 37.5
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
