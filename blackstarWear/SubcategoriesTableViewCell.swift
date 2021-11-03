@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class SubcategoriesTableViewCell: UITableViewCell {
     var subcategoryId = ""
     @IBOutlet weak var subcategoryNameLabel: UILabel!
@@ -21,11 +21,17 @@ class SubcategoriesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func fillCell(_ subcategory: SubcategoryRealm){
+    func fillCell(_ subcategory: Subcategories){
         self.subcategoryId = subcategory.id
         self.subcategoryNameLabel.text = subcategory.name
-        if let imageData = subcategory.iconImageData {
-            self.subcategoryImageView.image =  UIImage(data: imageData)
+        if subcategory.iconImage == ""{
+            self.subcategoryImageView.image = UIImage(named: "icons-3")
+        }else{
+            AF.request("https://blackstarshop.ru/\(subcategory.iconImage)").response { response in
+                if let data = response.data {
+                    self.subcategoryImageView.image =  UIImage(data: data)
+                }
+            }
         }
     }
 }

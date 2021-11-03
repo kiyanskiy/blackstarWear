@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Alamofire
 class CategoriesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var CategoryImageView: UIImageView!
@@ -22,9 +22,11 @@ class CategoriesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    func fillCell(_ category: CategoryRealm){
-        if let imageData = category.imageData {
-            self.CategoryImageView.image =  UIImage(data: imageData)
+    func fillCell(_ category: Category){
+        AF.request("https://blackstarshop.ru/\(category.image)").response { response in
+            if let data = response.data {
+                self.CategoryImageView.image =  UIImage(data: data)
+            }
         }
         self.CategoryNameLabel.text = category.name
     }

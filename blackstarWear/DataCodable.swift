@@ -7,47 +7,12 @@
 
 import Foundation
 
-struct Result: Codable{
-    let accessories: Category
-    let womens: Category
-    let mens: Category
-    let children: Category
-    let collections: Category
-    let sales: Category
-    let new: Category
-    let marketplace: Category
-    let preorder: Category
-    var allCategories: [Category]
-    enum CodingKeys: String, CodingKey {
-        case accessories = "67"
-        case womens = "68"
-        case mens = "69"
-        case children = "73"
-        case collections = "74"
-        case sales = "156"
-        case new = "165"
-        case marketplace = "233"
-        case preorder = "0"
-    }
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
 
-        self.accessories = try container.decode(Category.self, forKey: .accessories)
-        self.womens = try container.decode(Category.self, forKey: .womens)
-        self.mens = try container.decode(Category.self, forKey: .mens)
-        self.children = try container.decode(Category.self, forKey: .children)
-        self.collections = try container.decode(Category.self, forKey: .collections)
-        self.sales = try container.decode(Category.self, forKey: .sales)
-        self.new = try container.decode(Category.self, forKey: .new)
-        self.marketplace = try container.decode(Category.self, forKey: .marketplace)
-        self.preorder = try container.decode(Category.self, forKey: .preorder)
-        self.allCategories = [self.accessories, self.womens, self.mens, self.children, self.collections, self.sales, self.new, self.marketplace, self.preorder]
-    }
-}
+typealias Categories = [String: Category]
 
 struct Category: Codable{
     let name: String
-    let sortOrder: String
+    let sortOrder: Int
     let image: String
     let iconImage: String
     let iconImageActive: String
@@ -61,9 +26,9 @@ struct Category: Codable{
         case iconImageActive = "iconImageActive"
         case subcategories = "subcategories"
     }
-    
+
     init(from decoder: Decoder) throws {
-            
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.image = try container.decode(String.self, forKey: .image)
@@ -71,21 +36,20 @@ struct Category: Codable{
         self.iconImageActive = try container.decode(String.self, forKey: .iconImageActive)
         self.subcategories = try container.decode([Subcategories].self, forKey: .subcategories)
         do {
-            self.sortOrder = try container.decode(String.self, forKey: .sortOrder)
+            self.sortOrder = try container.decode(Int.self, forKey: .sortOrder)
 
         } catch {
-            self.sortOrder = String(try container.decode(Int.self, forKey: .sortOrder))
-                  
+            self.sortOrder = Int(try container.decode(String.self, forKey: .sortOrder)) ?? 0
         }
 
-        
+
     }
     
 }
 
 struct Subcategories: Codable{
     let name: String
-    let sortOrder: String
+    let sortOrder: Int
     let id: String
     let iconImage: String
     let type: String
@@ -97,48 +61,89 @@ struct Subcategories: Codable{
         case iconImage = "iconImage"
         case type = "type"
     }
-    
+
     init(from decoder: Decoder) throws {
-            
+
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.name = try container.decode(String.self, forKey: .name)
         self.iconImage = try container.decode(String.self, forKey: .iconImage)
         self.type = try container.decode(String.self, forKey: .type)
         do {
-            self.sortOrder = try container.decode(String.self, forKey: .sortOrder)
+            self.sortOrder = try container.decode(Int.self, forKey: .sortOrder)
 
         } catch {
-            self.sortOrder = String(try container.decode(Int.self, forKey: .sortOrder))
-                  
+            self.sortOrder = Int(try container.decode(String.self, forKey: .sortOrder)) ?? 0
+
         }
         do {
             self.id = try container.decode(String.self, forKey: .id)
 
         } catch {
             self.id = String(try container.decode(Int.self, forKey: .id))
-                  
+
         }
 
         
     }
 }
 
-struct Products: Codable{
+struct Product: Codable{
     let name: String
     let description: String
     let colorName: String
-    let price: String
+    let price: Int
+    let sortOrder: Int
     let colorImageURL: String
     let mainImage: String
-    let productImages: [ProductImages]
-    let offers: [Offers]
+    let productImages: [ProductImage]
+    let offers: [Offer]
+    enum CodingKeys: String, CodingKey {
+        case name = "name"
+        case description = "description"
+        case colorName = "colorName"
+        case price = "price"
+        case sortOrder = "sortOrder"
+        case colorImageURL = "colorImageURL"
+        case mainImage = "mainImage"
+        case productImages = "productImages"
+        case offers = "offers"
+    }
+    init(from decoder: Decoder) throws {
+        
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.colorName = try container.decode(String.self, forKey: .colorName)
+        self.colorImageURL = try container.decode(String.self, forKey: .colorImageURL)
+        self.mainImage = try container.decode(String.self, forKey: .mainImage)
+        self.productImages = try container.decode([ProductImage].self, forKey: .productImages)
+        self.offers = try container.decode([Offer].self, forKey: .offers)
+        do {
+            self.sortOrder = try container.decode(Int.self, forKey: .sortOrder)
+            
+        } catch {
+            self.sortOrder = Int(try container.decode(String.self, forKey: .sortOrder)) ?? 0
+            
+        }
+        do {
+            self.price = Int(try container.decode(Float.self, forKey: .price))
+            
+        } catch {
+            self.price = Int(Float(try container.decode(String.self, forKey: .price)) ?? 0)
+            
+        }
+        
+    }
 }
 
-struct ProductImages: Codable{
+struct ProductImage: Codable{
     let imageURL: String
     let sortOrder: String
 }
 
-struct Offers: Codable{
+struct Offer: Codable{
     let size: String
 }
+
+typealias Products = [String: Product]
+
