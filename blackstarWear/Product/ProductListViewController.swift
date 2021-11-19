@@ -28,6 +28,16 @@ class ProductListViewController: UIViewController {
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Product"{
+            let cell = sender as! ProductCollectionViewCell
+            
+            let indexPath = self.ProductCollectionView!.indexPath(for: cell)
+            
+            let currentProduct = products[indexPath!.row]
+            (segue.destination as! ProductViewController).product = currentProduct
+        }
+    }
 }
 
 

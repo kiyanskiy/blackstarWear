@@ -30,8 +30,10 @@ class ViewController: UIViewController {
        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let currentCategory = categories[categoriesTableView.indexPathForSelectedRow!.row]
-        (segue.destination as! SubcategoriesViewController).mainCategory = currentCategory
+        if segue.identifier == "NextCategories"{
+            let currentCategory = categories[categoriesTableView.indexPathForSelectedRow!.row]
+            (segue.destination as! SubcategoriesViewController).mainCategory = currentCategory
+        }
     }
 
 }

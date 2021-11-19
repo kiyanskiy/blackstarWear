@@ -24,8 +24,10 @@ class SubcategoriesViewController: UIViewController {
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let currentCategory = mainCategory?.subcategories[subcategoriesTableView.indexPathForSelectedRow!.row]
-       (segue.destination as! ProductListViewController).mainSubcategory = currentCategory
+        if segue.identifier == "ProductList"{
+            let currentCategory = mainCategory?.subcategories[subcategoriesTableView.indexPathForSelectedRow!.row]
+            (segue.destination as! ProductListViewController).mainSubcategory = currentCategory
+        }
     }
 }
 extension SubcategoriesViewController: UITableViewDataSource{
