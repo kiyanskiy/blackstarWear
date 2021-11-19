@@ -11,7 +11,6 @@ enum Size{
     case S,M,L,XL,XXL
     var description : String {
         switch self {
-        // Use Internationalization, as appropriate.
         case .S: return "S"
         case .M: return "M"
         case .L: return "L"

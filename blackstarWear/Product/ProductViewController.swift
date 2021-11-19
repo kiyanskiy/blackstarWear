@@ -19,6 +19,18 @@ class ProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imagesScrollView.delegate = self
+        showProducts()
+        
+    }
+
+    override func viewDidLayoutSubviews() {
+        super .viewDidLayoutSubviews()
+        if let currentProduct = product{
+            configureScrollView(currentProduct)
+        }
+        
+    }
+    func showProducts(){
         if let currentProduct = product{
             self.navigationItem.title = currentProduct.name
             pageControl.numberOfPages = currentProduct.productImages.count
@@ -50,16 +62,8 @@ class ProductViewController: UIViewController {
             }
             
         }
-        
     }
-
-    override func viewDidLayoutSubviews() {
-        super .viewDidLayoutSubviews()
-        if let currentProduct = product{
-            configureScrollView(currentProduct)
-        }
-        
-    }
+    
     func configureScrollView(_ currentProduct: Product){
         
         imagesScrollView.contentSize = CGSize(width: view.frame.size.width * CGFloat(currentProduct.productImages.count), height: 300)

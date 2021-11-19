@@ -16,10 +16,8 @@ class SubcategoriesViewController: UIViewController {
         subcategoriesTableView.tableFooterView = UIView()
         if let currentCategory = mainCategory{
             for category in currentCategory.subcategories{
-                //if category.iconImage != ""{
-                    subcategories.append(category)
-               // }
-                
+               subcategories.append(category)
+              
             }
         }
     }

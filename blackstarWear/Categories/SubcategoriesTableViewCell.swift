@@ -13,13 +13,12 @@ class SubcategoriesTableViewCell: UITableViewCell {
     @IBOutlet weak var subcategoryImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-       // self.subcategoryImageView.layer.cornerRadius = 37.5
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
     func fillCell(_ subcategory: Subcategories){
         self.subcategoryId = subcategory.id

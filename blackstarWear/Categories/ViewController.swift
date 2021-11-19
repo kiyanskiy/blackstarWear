@@ -14,6 +14,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         categoriesTableView.tableFooterView = UIView()
+        showCategories()
+       
+       
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "NextCategories"{
+            let currentCategory = categories[categoriesTableView.indexPathForSelectedRow!.row]
+            (segue.destination as! SubcategoriesViewController).mainCategory = currentCategory
+        }
+    }
+
+    func showCategories(){
         MBProgressHUD.showAdded(to: self.view, animated: true)
         DataLoader().loadCategories { result in
             
@@ -27,15 +39,7 @@ class ViewController: UIViewController {
             self.categoriesTableView.reloadData()
             MBProgressHUD.hide(for: self.view, animated: true)
         }
-       
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "NextCategories"{
-            let currentCategory = categories[categoriesTableView.indexPathForSelectedRow!.row]
-            (segue.destination as! SubcategoriesViewController).mainCategory = currentCategory
-        }
-    }
-
 }
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

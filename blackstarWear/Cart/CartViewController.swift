@@ -8,17 +8,11 @@
 import UIKit
 import RealmSwift
 class CartViewController: UIViewController {
-//    let realm = try! Realm()
-//    var products: [ProductRealm] = []
     
     @IBOutlet weak var CartsProductsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let productsRealm = realm.objects(ProductRealm.self)
-//        for currentProduct in productsRealm{
-//            products.append(currentProduct)
-//        }
-//        CartsProductsTableView.reloadData()
+
         
        
     }
@@ -31,7 +25,7 @@ class CartViewController: UIViewController {
     }
 
 }
-extension CartViewController: UITableViewDataSource{
+extension CartViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print(try! Realm().objects(ProductRealm.self).count)
         return try! Realm().objects(ProductRealm.self).count
@@ -46,6 +40,8 @@ extension CartViewController: UITableViewDataSource{
         
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }
