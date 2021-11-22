@@ -28,7 +28,7 @@ class SubcategoriesViewController: UIViewController {
         }
     }
 }
-extension SubcategoriesViewController: UITableViewDataSource{
+extension SubcategoriesViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subcategories.count
     }
@@ -38,6 +38,8 @@ extension SubcategoriesViewController: UITableViewDataSource{
         cell.fillCell(subcategories[indexPath.row])
         return cell
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
     
 }

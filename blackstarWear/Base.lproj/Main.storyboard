@@ -414,6 +414,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="x6Y-Bg-R8W"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ooh-IW-lUe"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -494,6 +495,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="DPY-1o-DXd" id="q0W-mq-DPg"/>
+                                    <outlet property="delegate" destination="DPY-1o-DXd" id="MVn-mO-2mE"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -549,8 +551,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LNF-oV-Pnt">
                                                     <rect key="frame" x="8" y="8" width="175" height="175"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="175" id="ACw-MT-Oxj"/>
-                                                        <constraint firstAttribute="width" constant="175" id="kJo-WF-ipj"/>
+                                                        <constraint firstAttribute="width" priority="999" constant="175" id="LGJ-3L-gfz"/>
+                                                        <constraint firstAttribute="height" priority="999" constant="175" id="oeW-Pl-Fkg"/>
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eb2-OJ-mjC">
@@ -593,6 +595,8 @@
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="contentCellView" destination="X4r-EZ-dK5" id="IEA-bI-WDO"/>
+                                            <outlet property="imageHeightConstraint" destination="oeW-Pl-Fkg" id="EJL-gO-ClA"/>
+                                            <outlet property="imageWidthConstraint" destination="LGJ-3L-gfz" id="Fil-xA-y00"/>
                                             <outlet property="nameLabel" destination="CBR-PS-luZ" id="UwB-oy-zhf"/>
                                             <outlet property="priceLabel" destination="xf6-uL-1QY" id="btE-Rf-F8i"/>
                                             <outlet property="productImageView" destination="LNF-oV-Pnt" id="SQX-fm-yvk"/>
