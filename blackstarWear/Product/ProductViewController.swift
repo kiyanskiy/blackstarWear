@@ -14,11 +14,14 @@ class ProductViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var descriptionLabel: UILabel!
+
     @IBOutlet weak var nameLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         imagesScrollView.delegate = self
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.lineBreakMode = .byWordWrapping
         showProducts()
         
     }
@@ -36,7 +39,7 @@ class ProductViewController: UIViewController {
             pageControl.numberOfPages = currentProduct.productImages.count
             addToCartButton.layer.cornerRadius = 10
             priceLabel.text = String(currentProduct.price) + " руб."
-            descriptionTextView.text = currentProduct.description
+            descriptionLabel.text = currentProduct.description
             nameLabel.text = currentProduct.name
             
             for image in currentProduct.productImages{

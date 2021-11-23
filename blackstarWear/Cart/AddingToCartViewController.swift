@@ -27,12 +27,11 @@ class AddingToCartViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton.layer.cornerRadius = 10
-        selectedColor = array[0]
-        selectedSize = array[0].size[0]
         
     }
     
     @IBAction func addToCart(_ sender: Any) {
+        
         let products = realm.objects(ProductRealm.self)
         if products.count != 0{
             var productExist = false
@@ -51,21 +50,31 @@ class AddingToCartViewController: UIViewController {
         }else{
             createNewRealProduct()
         }
-        self.dismiss(animated: true, completion: nil)
+        
     }
     func createNewRealProduct(){
-        if selectedProduct != nil && selectedColor != nil && selectedSize != nil{
-            let product = ProductRealm()
-            product.name = selectedProduct!.name
-            product.price = selectedProduct!.price
-            product.mainImage = selectedProduct!.mainImage
-            product.colorName = selectedColor!.color.description
-            product.size = selectedSize!.description
-            try! realm.write {
-                realm.add(product)
-            }
+        guard let currentProduct = selectedProduct else {
+            return
         }
+        guard let currentSize = selectedSize, let currentColor = selectedColor else {
+            let alert = UIAlertController(title: "", message: "Выберите размер и цвет товара", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        let newProduct = ProductRealm()
+            newProduct.name = currentProduct.name
+            newProduct.price = currentProduct.price
+            newProduct.mainImage = currentProduct.mainImage
+            newProduct.colorName = currentColor.color.description
+            newProduct.size = currentSize.description
+            try! realm.write {
+                realm.add(newProduct)
+        }
+        self.dismiss(animated: true, completion: nil)
     }
+    
 }
 
 
@@ -75,11 +84,10 @@ extension AddingToCartViewController: UITableViewDataSource, UITableViewDelegate
         if tableView == colorTableView{
             return array.count
         }else{
-            if selectedColor != nil{
-                return selectedColor!.size.count
-            }else{
-                return array[0].size.count
+            guard let currentColor = selectedColor else{
+                return 0
             }
+            return currentColor.size.count
         }
         
     }
@@ -93,8 +101,6 @@ extension AddingToCartViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "SizeCell") as! SizeTableViewCell
             if let currentColor = selectedColor{
                 cell.sizeLabel.text = currentColor.size[indexPath.row].description
-            }else{
-                cell.sizeLabel.text = array[0].size[indexPath.row].description
             }
             return cell
         }
@@ -103,9 +109,16 @@ extension AddingToCartViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == colorTableView{
             selectedColor = array[indexPath.row]
+            selectedSize = nil
             self.sizeTableView.reloadData()
         }else{
-            selectedSize = selectedColor?.size[indexPath.row]
+            guard let currentColor = selectedColor else{
+                let alert = UIAlertController(title: "", message: "Сначала выберите цвет товара", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            selectedSize = currentColor.size[indexPath.row]
         }
         
     }
