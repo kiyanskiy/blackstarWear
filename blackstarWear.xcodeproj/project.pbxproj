@@ -20,6 +20,8 @@
 		A347944A26E25A9B00768E30 /* DataCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A347944926E25A9B00768E30 /* DataCodable.swift */; };
 		A379A8E727255E9D00D2E6AF /* Alamofire.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; };
 		A379A8E827255E9D00D2E6AF /* Alamofire.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A347943A26E2518000768E30 /* Alamofire.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A38175EF274D12440065832D /* AlamofireImage.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A38175EE274D12440065832D /* AlamofireImage.xcframework */; };
+		A38175F0274D12440065832D /* AlamofireImage.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A38175EE274D12440065832D /* AlamofireImage.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A394173C2725525500CC06FF /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A394173B2725525500CC06FF /* ProductListViewController.swift */; };
 		A3958871273BBF2B00CC26DE /* CartsProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3958870273BBF2B00CC26DE /* CartsProductTableViewCell.swift */; };
 		A3958873273C07BC00CC26DE /* DeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3958872273C07BC00CC26DE /* DeleteViewController.swift */; };
@@ -50,6 +52,7 @@
 				A3E55A652731427900F3C10B /* MBProgressHUD.xcframework in Embed Frameworks */,
 				A347944326E2518E00768E30 /* Realm.framework in Embed Frameworks */,
 				A347944126E2518E00768E30 /* RealmSwift.framework in Embed Frameworks */,
+				A38175F0274D12440065832D /* AlamofireImage.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +70,7 @@
 		A347944526E2582300768E30 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
 		A347944726E25A3500768E30 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
 		A347944926E25A9B00768E30 /* DataCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCodable.swift; sourceTree = "<group>"; };
+		A38175EE274D12440065832D /* AlamofireImage.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = AlamofireImage.xcframework; path = Carthage/Build/AlamofireImage.xcframework; sourceTree = "<group>"; };
 		A394173B2725525500CC06FF /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		A3958870273BBF2B00CC26DE /* CartsProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartsProductTableViewCell.swift; sourceTree = "<group>"; };
 		A3958872273C07BC00CC26DE /* DeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				A3E55A642731427900F3C10B /* MBProgressHUD.xcframework in Frameworks */,
 				A347944226E2518E00768E30 /* Realm.framework in Frameworks */,
 				A347944026E2518E00768E30 /* RealmSwift.framework in Frameworks */,
+				A38175EF274D12440065832D /* AlamofireImage.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +110,7 @@
 		A347943926E2518000768E30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A38175EE274D12440065832D /* AlamofireImage.xcframework */,
 				A3E55A632731427900F3C10B /* MBProgressHUD.xcframework */,
 				A347943F26E2518E00768E30 /* Realm.framework */,
 				A347943E26E2518E00768E30 /* RealmSwift.framework */,

@@ -23,6 +23,7 @@ class CategoriesTableViewCell: UITableViewCell {
 
     }
     func fillCell(_ category: Category){
+       
         AF.request("https://blackstarshop.ru/\(category.image)").response { response in
             if let data = response.data {
                 self.CategoryImageView.image =  UIImage(data: data)

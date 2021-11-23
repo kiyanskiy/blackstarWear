@@ -11,6 +11,7 @@ import Alamofire
 class DataLoader{
    
     func loadCategories(completion: @escaping (Categories) -> Void){
+        
         AF.request("https://blackstarshop.ru/index.php?route=api/v1/categories").response { (responseData) in guard let data = responseData.data else {return}
             do{
                 let result = try JSONDecoder().decode(Categories.self, from: data)
