@@ -46,6 +46,10 @@ class AddingToCartViewController: UIViewController {
             }
             if !productExist{
                 createNewRealProduct()
+            }else{
+                let alert = UIAlertController(title: "", message: "Товар уже в корзине", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }else{
             createNewRealProduct()
@@ -57,7 +61,7 @@ class AddingToCartViewController: UIViewController {
             return
         }
         guard let currentSize = selectedSize, let currentColor = selectedColor else {
-            let alert = UIAlertController(title: "", message: "Выберите размер и цвет товара", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Внимание", message: "Выберите размер и цвет товара", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
             return
@@ -113,7 +117,7 @@ extension AddingToCartViewController: UITableViewDataSource, UITableViewDelegate
             self.sizeTableView.reloadData()
         }else{
             guard let currentColor = selectedColor else{
-                let alert = UIAlertController(title: "", message: "Сначала выберите цвет товара", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Внимание", message: "Сначала выберите цвет товара", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
                 return

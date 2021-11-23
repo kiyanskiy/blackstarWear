@@ -12,9 +12,11 @@ class CartViewController: UIViewController {
     @IBOutlet weak var CartsProductsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-       
+        CartsProductsTableView.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        CartsProductsTableView.reloadData()        
     }
     @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
         DispatchQueue.global(qos: .userInitiated).async {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tDp-e6-leE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eAX-TY-rcl">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,10 +11,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="iuY-kc-0fD">
+            <objects>
+                <tabBarController id="eAX-TY-rcl" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NEL-lj-hbb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tDp-e6-leE" kind="relationship" relationship="viewControllers" id="eDm-K5-INO"/>
+                        <segue destination="Zfu-To-qcf" kind="relationship" relationship="viewControllers" id="4WJ-ei-DPd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08H-ff-Az2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2671" y="324"/>
+        </scene>
+        <!--Каталог-->
         <scene sceneID="MXR-ip-4nm">
             <objects>
                 <navigationController id="tDp-e6-leE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Каталог" image="books.vertical.fill" catalog="system" id="2AV-be-SJ3"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" id="aqb-o4-OLs">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -177,8 +196,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Корзина" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQ6-p8-thJ">
+                                <rect key="frame" x="168" y="44" width="78" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Zl5-9S-l7r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aR7-cR-vYu">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="69" width="414" height="744"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CartsProduct" id="jEq-CI-T3h" customClass="CartsProductTableViewCell" customModule="blackstarWear" customModuleProvider="target">
@@ -266,12 +294,15 @@
                         <viewLayoutGuide key="safeArea" id="Ww1-iY-AgT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="YQ6-p8-thJ" firstAttribute="centerX" secondItem="ZrZ-sh-oWe" secondAttribute="centerX" id="2i3-te-Sf6"/>
                             <constraint firstItem="aR7-cR-vYu" firstAttribute="leading" secondItem="Ww1-iY-AgT" secondAttribute="leading" id="7LK-iq-hXq"/>
                             <constraint firstItem="Ww1-iY-AgT" firstAttribute="bottom" secondItem="aR7-cR-vYu" secondAttribute="bottom" id="9vy-sf-r6r"/>
-                            <constraint firstItem="aR7-cR-vYu" firstAttribute="top" secondItem="Ww1-iY-AgT" secondAttribute="top" id="EAy-YP-900"/>
+                            <constraint firstItem="aR7-cR-vYu" firstAttribute="top" secondItem="YQ6-p8-thJ" secondAttribute="bottom" id="EAy-YP-900"/>
                             <constraint firstItem="Ww1-iY-AgT" firstAttribute="trailing" secondItem="aR7-cR-vYu" secondAttribute="trailing" id="YIh-Yp-U8G"/>
+                            <constraint firstItem="YQ6-p8-thJ" firstAttribute="top" secondItem="Ww1-iY-AgT" secondAttribute="top" id="aOB-ga-2ge"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Корзина" image="cart" catalog="system" id="Qjl-QC-BAE"/>
                     <navigationItem key="navigationItem" title="Корзина" id="jNj-7W-2Al"/>
                     <connections>
                         <outlet property="CartsProductsTableView" destination="aR7-cR-vYu" id="p0d-Zt-1Fl"/>
@@ -279,7 +310,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Og6-gK-hXh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4558" y="820"/>
+            <point key="canvasLocation" x="19" y="813"/>
         </scene>
         <!--Delete View Controller-->
         <scene sceneID="6jd-1I-UlN">
@@ -361,7 +392,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EQ9-Ah-hS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="SGn-lN-1bf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5388" y="820"/>
+            <point key="canvasLocation" x="1158" y="813"/>
         </scene>
         <!--Категории-->
         <scene sceneID="tne-QT-ifu">
@@ -372,7 +403,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tuh-Xj-uHY">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryCell" id="9YA-ks-eeo" customClass="CategoriesTableViewCell" customModule="blackstarWear" customModuleProvider="target">
@@ -428,13 +459,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Категории" id="nWT-U6-fcg">
-                        <barButtonItem key="rightBarButtonItem" title="1" image="cart" catalog="system" id="7UE-Kx-gss">
-                            <connections>
-                                <segue destination="Zfu-To-qcf" kind="show" id="CrX-dH-w1o"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Категории" id="nWT-U6-fcg"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="categoriesTableView" destination="Tuh-Xj-uHY" id="4l1-vn-LM9"/>
@@ -453,7 +478,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iRo-Y0-7lf">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SubcategoryCell" id="ifU-cw-wKJ" customClass="SubcategoriesTableViewCell" customModule="blackstarWear" customModuleProvider="target">
@@ -508,13 +533,7 @@
                             <constraint firstItem="oxm-E6-Fid" firstAttribute="bottom" secondItem="iRo-Y0-7lf" secondAttribute="bottom" id="wnK-2f-Key"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Категории" id="wAK-RH-UGb">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="iCo-7p-7SX">
-                            <connections>
-                                <segue destination="Zfu-To-qcf" kind="show" id="eOD-eN-fZ8"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Категории" id="wAK-RH-UGb"/>
                     <connections>
                         <outlet property="subcategoriesTableView" destination="iRo-Y0-7lf" id="EIc-9Z-vSK"/>
                     </connections>
@@ -532,7 +551,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4TT-jZ-vF2">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FEJ-13-8zU">
                                     <size key="itemSize" width="128" height="128"/>
@@ -618,13 +637,7 @@
                             <constraint firstItem="4TT-jZ-vF2" firstAttribute="leading" secondItem="Axy-Ct-Auk" secondAttribute="leading" id="vPc-7Y-DCK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Товары" id="EJk-C4-duU">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="Z7X-lo-E7s">
-                            <connections>
-                                <segue destination="Zfu-To-qcf" kind="show" id="rea-fQ-Jtc"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Товары" id="EJk-C4-duU"/>
                     <connections>
                         <outlet property="ProductCollectionView" destination="4TT-jZ-vF2" id="5zf-Fu-irp"/>
                     </connections>
@@ -642,10 +655,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="STd-lT-6Dr">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="676"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xa5-Ta-ze5">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
                                         <subviews>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0U-al-q5g">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -666,7 +679,7 @@
                                                 </constraints>
                                             </scrollView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cdq-1C-mNP">
-                                                <rect key="frame" x="0.0" y="300" width="414" height="425"/>
+                                                <rect key="frame" x="0.0" y="300" width="414" height="376"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название товара" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGg-zV-07y">
                                                         <rect key="frame" x="8" y="20" width="398" height="30"/>
@@ -767,13 +780,7 @@
                             <constraint firstItem="Orc-Yo-WxO" firstAttribute="bottom" secondItem="STd-lT-6Dr" secondAttribute="bottom" id="hsV-5O-epr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lHt-MF-Cfg">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="cart" catalog="system" id="2Gh-c2-SN8">
-                            <connections>
-                                <segue destination="Zfu-To-qcf" kind="show" id="CCE-Fz-7da"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="lHt-MF-Cfg"/>
                     <connections>
                         <outlet property="addToCartButton" destination="o0j-fP-8Rq" id="YXy-s8-6ua"/>
                         <outlet property="descriptionLabel" destination="Q46-JZ-3rm" id="iWl-qs-NJe"/>
@@ -795,10 +802,8 @@
             <point key="canvasLocation" x="3237.68115942029" y="75"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="CCE-Fz-7da"/>
-    </inferredMetricsTieBreakers>
     <resources>
+        <image name="books.vertical.fill" catalog="system" width="128" height="109"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="AccentColor">
