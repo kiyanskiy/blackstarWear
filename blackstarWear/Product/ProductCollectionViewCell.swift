@@ -25,10 +25,9 @@ class ProductCollectionViewCell: UICollectionViewCell {
         self.nameLabel.text = product.name
         self.priceLabel.text = String(product.price) + " р."
         MBProgressHUD.showAdded(to: self.contentCellView, animated: true)
-        AF.request("https://blackstarshop.ru/\(product.mainImage)").response { response in
-            if let data = response.data {
-                self.productImageView.image =  UIImage(data: data)
-            }
+        if let url = URL(string: "https://blackstarshop.ru/\(product.mainImage)") {
+            
+            self.productImageView.af.setImage(withURL: url)
             MBProgressHUD.hide(for: self.contentCellView, animated: true)
         }
     }

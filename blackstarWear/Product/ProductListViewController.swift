@@ -8,7 +8,7 @@
 import UIKit
 import MBProgressHUD
 class ProductListViewController: UIViewController {
-    @IBOutlet weak var ProductCollectionView: UICollectionView!
+    @IBOutlet weak var productCollectionView: UICollectionView!
     var mainSubcategory: Subcategories?
     var products: [Product] = []
     override func viewDidLoad() {
@@ -23,19 +23,25 @@ class ProductListViewController: UIViewController {
                     newArray.append(product)
                 }
                 self.products = newArray.sorted{ $0.sortOrder < $1.sortOrder }
-                self.ProductCollectionView.reloadData()
+                self.productCollectionView.reloadData()
                 MBProgressHUD.hide(for: self.view, animated: true)
             }
         }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Product"{
-            let cell = sender as! ProductCollectionViewCell
-            
-            let indexPath = self.ProductCollectionView!.indexPath(for: cell)
-            
-            let currentProduct = products[indexPath!.row]
-            (segue.destination as! ProductViewController).product = currentProduct
+            if let cell = sender as? ProductCollectionViewCell{
+                let indexPath = self.productCollectionView.indexPath(for: cell)
+                if let path = indexPath{
+                    let currentProduct = products[path.row]
+                    if let productController = segue.destination as? ProductViewController{
+                        productController.product = currentProduct
+                    }
+ 
+                }
+                
+            }
+           
         }
     }
 }

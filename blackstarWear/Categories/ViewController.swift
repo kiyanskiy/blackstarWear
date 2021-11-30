@@ -20,8 +20,13 @@ class ViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NextCategories"{
-            let currentCategory = categories[categoriesTableView.indexPathForSelectedRow!.row]
-            (segue.destination as! SubcategoriesViewController).mainCategory = currentCategory
+            if let indexPath = categoriesTableView.indexPathForSelectedRow{
+                let currentCategory = categories[indexPath.row]
+                if let subcategoriesController = segue.destination as? SubcategoriesViewController{
+                    subcategoriesController.mainCategory = currentCategory
+                }
+            }
+             
         }
     }
 
@@ -48,11 +53,13 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoriesTableViewCell
-        if categories.count > 0 {
-            cell.fillCell(categories[indexPath.row])
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoriesTableViewCell{
+            if categories.count > 0 {
+                cell.fillCell(categories[indexPath.row])
+            }
+            return cell
         }
-        return cell
+        return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

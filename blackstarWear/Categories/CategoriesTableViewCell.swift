@@ -7,14 +7,15 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 class CategoriesTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var CategoryImageView: UIImageView!
+    @IBOutlet weak var categoryImageView: UIImageView!
     
-    @IBOutlet weak var CategoryNameLabel: UILabel!
+    @IBOutlet weak var categoryNameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.CategoryImageView.layer.cornerRadius = 37.5
+        self.categoryImageView.layer.cornerRadius = 37.5
        
     }
 
@@ -23,13 +24,12 @@ class CategoriesTableViewCell: UITableViewCell {
 
     }
     func fillCell(_ category: Category){
-       
-        AF.request("https://blackstarshop.ru/\(category.image)").response { response in
-            if let data = response.data {
-                self.CategoryImageView.image =  UIImage(data: data)
-            }
+        if let url = URL(string: "https://blackstarshop.ru/\(category.image)") {
+            
+            self.categoryImageView.af.setImage(withURL: url)
+            
         }
-        self.CategoryNameLabel.text = category.name
+        self.categoryNameLabel.text = category.name
     }
-
+    
 }

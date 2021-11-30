@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 class ProductViewController: UIViewController {
     var product: Product?
     var images: [UIImage] = []
@@ -43,25 +44,28 @@ class ProductViewController: UIViewController {
             nameLabel.text = currentProduct.name
             
             for image in currentProduct.productImages{
-                AF.request("https://blackstarshop.ru/\(image.imageURL)").response { response in
-                    if let data = response.data {
-                        if let currentImage = UIImage(data: data){
-                            self.images.append(currentImage)
-                            self.configureScrollView(currentProduct)
-                        }
-                        
+                let downloader = ImageDownloader()
+                let urlRequest = URLRequest(url: URL(string: "https://blackstarshop.ru/\(image.imageURL)")!)
+
+                downloader.download(urlRequest, completion: { response in
+                    
+                    if case .success(let image) = response.result {
+                        self.images.append(image)
+                        self.configureScrollView(currentProduct)
                     }
-                }
+                })
             }
             if currentProduct.productImages.count == 0{
-                AF.request("https://blackstarshop.ru/\(currentProduct.mainImage)").response { response in
-                    if let data = response.data {
-                        if let currentImage = UIImage(data: data){
-                            self.images.append(currentImage)
-                            self.configureScrollView(currentProduct)
-                        }
+                let downloader = ImageDownloader()
+                let urlRequest = URLRequest(url: URL(string: "https://blackstarshop.ru/\(currentProduct.mainImage)")!)
+
+                downloader.download(urlRequest, completion: { response in
+                    
+                    if case .success(let image) = response.result {
+                        self.images.append(image)
+                        self.configureScrollView(currentProduct)
                     }
-                }
+                })
             }
             
         }
@@ -85,7 +89,9 @@ class ProductViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SelectSizeColor"{
-            (segue.destination as! AddingToCartViewController).selectedProduct = self.product
+            if let addingToCartController = segue.destination as? AddingToCartViewController{
+                addingToCartController.selectedProduct = self.product
+            }
         }
     }
 }

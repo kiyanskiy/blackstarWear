@@ -26,11 +26,11 @@ class SubcategoriesTableViewCell: UITableViewCell {
         if subcategory.iconImage == ""{
             self.subcategoryImageView.image = UIImage(named: "icons-3")
         }else{
-            AF.request("https://blackstarshop.ru/\(subcategory.iconImage)").response { response in
-                if let data = response.data {
-                    self.subcategoryImageView.image =  UIImage(data: data)
-                }
+            if let url = URL(string: "https://blackstarshop.ru/\(subcategory.iconImage)") {
+                
+                self.subcategoryImageView.af.setImage(withURL: url)
             }
+
         }
     }
 }

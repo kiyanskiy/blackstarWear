@@ -9,19 +9,19 @@ import UIKit
 import RealmSwift
 class CartViewController: UIViewController {
     
-    @IBOutlet weak var CartsProductsTableView: UITableView!
+    @IBOutlet weak var cartsProductsTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        CartsProductsTableView.reloadData()
+        cartsProductsTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        CartsProductsTableView.reloadData()        
+        cartsProductsTableView.reloadData()
     }
     @IBAction func unwindToViewControllerA(segue: UIStoryboardSegue) {
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                self.CartsProductsTableView.reloadData()
+                self.cartsProductsTableView.reloadData()
             }
         }
     }

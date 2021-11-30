@@ -248,7 +248,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R4f-Ch-Uz5">
-                                                    <rect key="frame" x="343" y="43" width="43" height="31"/>
+                                                    <rect key="frame" x="343" y="19" width="43" height="31"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system" title=""/>
                                                     <connections>
@@ -268,10 +268,10 @@
                                                 <constraint firstItem="CJa-sK-plz" firstAttribute="top" secondItem="Zmg-MF-v5q" secondAttribute="bottom" constant="5" id="JCa-h2-e3F"/>
                                                 <constraint firstItem="CJa-sK-plz" firstAttribute="leading" secondItem="Nnk-fb-eCo" secondAttribute="trailing" constant="8" id="K5f-KC-Dv3"/>
                                                 <constraint firstItem="SdM-JA-JMB" firstAttribute="leading" secondItem="Nnk-fb-eCo" secondAttribute="trailing" constant="8" id="KDc-Gg-OGz"/>
+                                                <constraint firstItem="R4f-Ch-Uz5" firstAttribute="top" secondItem="HKF-m5-K0d" secondAttribute="topMargin" constant="8" id="PZh-ma-zYt"/>
                                                 <constraint firstItem="R4f-Ch-Uz5" firstAttribute="leadingMargin" relation="greaterThanOrEqual" secondItem="SdM-JA-JMB" secondAttribute="trailing" constant="8" id="ZBb-47-0GO"/>
                                                 <constraint firstItem="Qr6-0u-3jw" firstAttribute="top" secondItem="CJa-sK-plz" secondAttribute="bottom" constant="8" id="eyc-a8-29t"/>
                                                 <constraint firstItem="SdM-JA-JMB" firstAttribute="top" secondItem="HKF-m5-K0d" secondAttribute="topMargin" id="o3U-gs-hOR"/>
-                                                <constraint firstItem="R4f-Ch-Uz5" firstAttribute="centerY" secondItem="HKF-m5-K0d" secondAttribute="centerY" id="oez-Gx-liV"/>
                                                 <constraint firstItem="Zmg-MF-v5q" firstAttribute="leading" secondItem="Nnk-fb-eCo" secondAttribute="trailing" constant="8" id="pFj-NZ-vEx"/>
                                                 <constraint firstAttribute="bottom" secondItem="Nnk-fb-eCo" secondAttribute="bottom" constant="8" id="rzl-kn-FqJ"/>
                                             </constraints>

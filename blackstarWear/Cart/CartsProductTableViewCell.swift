@@ -34,10 +34,8 @@ class CartsProductTableViewCell: UITableViewCell {
         colorLabel.text = "Цвет: " + product.colorName
         nameLabel.text = product.name
         sizeLabel.text = "Размер: " + product.size
-        AF.request("https://blackstarshop.ru/\(product.mainImage)").response { response in
-            if let data = response.data {
-                self.productImage.image =  UIImage(data: data)
-            }
+        if let url = URL(string: "https://blackstarshop.ru/\(product.mainImage)") {
+            self.productImage.af.setImage(withURL: url)
         }
     }
     

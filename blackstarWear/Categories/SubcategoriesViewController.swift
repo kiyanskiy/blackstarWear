@@ -23,8 +23,15 @@ class SubcategoriesViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ProductList"{
-            let currentCategory = mainCategory?.subcategories[subcategoriesTableView.indexPathForSelectedRow!.row]
-            (segue.destination as! ProductListViewController).mainSubcategory = currentCategory
+            if let category = mainCategory{
+                if let indexPath = subcategoriesTableView.indexPathForSelectedRow{
+                    let currentCategory = category.subcategories[indexPath.row]
+                    if let productController = segue.destination as? ProductListViewController{
+                        productController.mainSubcategory = currentCategory
+                    }
+                }
+            }
+            
         }
     }
 }
@@ -34,9 +41,11 @@ extension SubcategoriesViewController: UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SubcategoryCell") as! SubcategoriesTableViewCell
-        cell.fillCell(subcategories[indexPath.row])
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "SubcategoryCell") as? SubcategoriesTableViewCell{
+            cell.fillCell(subcategories[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
